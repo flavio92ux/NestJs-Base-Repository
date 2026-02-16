@@ -2,7 +2,7 @@
 GET http://localhost:3000/developers
 
 ### LIST developer
-GET http://localhost:3000/developers/1
+GET http://localhost:3000/developers/dev_8H3Vj_JEkpx9uyckZxb1z
 
 ### CREATE developer
 POST http://localhost:3000/developers
@@ -15,7 +15,12 @@ Content-Type: application/json
 }
 
 ### UPDATE developer
-PATCH http://localhost:3000/developers/1
+PATCH http://localhost:3000/developers/dev_8H3Vj_JEkpx9uyckZxb1z
+Content-Type: application/json
+
+{
+    "dateOfBirth": "1990-03-29"
+}
 
 ### DELETE developer
 DELETE http://localhost:3000/developers/3
