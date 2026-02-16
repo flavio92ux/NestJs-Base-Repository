@@ -1,98 +1,209 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# NestJS Project Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Um projeto backend construído com **NestJS**, utilizando **SQLite3** como banco de dados e **TypeORM** para gerenciamento de dados com validação de dados robusta.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Tecnologias Utilizadas
 
-## Description
+### Core Framework
+- **NestJS** - Framework progressivo para construir aplicações Node.js eficientes e escaláveis
+- **TypeScript** - Linguagem tipada que compila para JavaScript
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Banco de Dados
+- **SQLite3** - Banco de dados relacional embutido e leve
+- **TypeORM** - ORM (Object-Relational Mapping) para TypeScript e JavaScript
+- **@nestjs/typeorm** - Integração oficial do TypeORM com NestJS
 
-## Project setup
+### Validação e Transformação de Dados
+- **class-validator** - Validação declarativa baseada em decoradores para classes
+- **class-transformer** - Transformação de objetos com suporte a tipos complexos
+- **@nestjs/mapped-types** - Tipos utilitários para reduzir duplicação de código DTOs
 
-```bash
-$ npm install
+## 📋 Estrutura do Projeto
+
+```
+src/
+├── main.ts                           # Ponto de entrada da aplicação
+├── app.module.ts                     # Módulo raiz
+├── app.controller.ts                 # Controlador da aplicação
+├── app.service.ts                    # Serviço da aplicação
+└── developers/                       # Módulo de Developers (gerado com nest g resource)
+    ├── developers.module.ts          # Módulo de developers
+    ├── developers.controller.ts      # Controlador REST
+    ├── developers.service.ts         # Lógica de negócio
+    ├── dto/                          # Data Transfer Objects
+    │   ├── create-developer.dto.ts   # DTO para criação
+    │   └── update-developer.dto.ts   # DTO para atualização
+    └── entities/
+        └── developer.entity.ts       # Entidade TypeORM
 ```
 
-## Compile and run the project
+## 🔧 Instalação
 
+### Pré-requisitos
+- Node.js 18.x ou superior
+- npm ou yarn
+
+### Passos de Instalação
+
+1. **Clone o repositório ou extraia o projeto**
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+cd /home/flavio/Projetos/nestjs-project-backend
 ```
 
-## Run tests
-
+2. **Instale as dependências**
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
+## 🏃 Como Executar
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+### Desenvolvimento
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run start:dev
+```
+A aplicação será iniciada em modo watch, recarregando automaticamente ao detectar mudanças.
+
+### Produção
+```bash
+npm run build
+npm run start:prod
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### Debug
+```bash
+npm run start:debug
+```
 
-## Resources
+## 📚 Módulo Developers
 
-Check out a few resources that may come in handy when working with NestJS:
+O módulo `developers` foi criado utilizando o comando CLI do NestJS:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+nest g resource developers
+```
 
-## Support
+Este comando gerou automaticamente:
+- **Controller** - Endpoints REST para operações CRUD
+- **Service** - Lógica de negócio
+- **Module** - Configuração do módulo
+- **Entity** - Modelo de dados com TypeORM
+- **DTOs** - Objetos de transferência de dados
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Rotas Disponíveis
 
-## Stay in touch
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| POST | `/developers` | Criar um novo developer |
+| GET | `/developers` | Listar todos os developers |
+| GET | `/developers/:id` | Obter um developer específico |
+| PATCH | `/developers/:id` | Atualizar um developer |
+| DELETE | `/developers/:id` | Deletar um developer |
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 🗄️ Banco de Dados
 
-## License
+### Configuração SQLite3
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+O banco de dados é configurado no `app.module.ts` com as seguintes configurações:
+
+```typescript
+TypeOrmModule.forRoot({
+  type: 'sqlite',
+  database: 'db.sqlite',
+  entities: [__dirname + '/**/*.entity{.ts,.js}'],
+  synchronize: true
+})
+```
+
+- **type**: Tipo de banco de dados (SQLite)
+- **database**: Arquivo de banco de dados (`db.sqlite`)
+- **synchronize**: Sincronização automática de esquema (ideal para desenvolvimento)
+
+### Entidade Developer
+
+A entidade `Developer` utiliza **TypeORM** com decoradores para definição de colunas:
+
+```typescript
+@Entity('developers')
+export class Developer {
+  @PrimaryColumn()
+  id: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  dateOfBirth: string;
+
+  @BeforeInsert()
+  generateId() {
+    this.id = `dev_${nanoid()}`;
+  }
+}
+```
+
+## ✔️ Validação de Dados
+
+O projeto utiliza **class-validator** e **class-transformer** para validação robusta de dados nos DTOs.
+
+### Exemplo de DTO com Validação
+
+```typescript
+import { IsString, IsEmail, IsDateString } from 'class-validator';
+
+export class CreateDeveloperDto {
+  @IsString()
+  name: string;
+
+  @IsEmail()
+  email: string;
+
+  @IsDateString()
+  dateOfBirth: string;
+}
+```
+
+Recursos:
+- **Validação automática** em controllers via ValidationPipe
+- **Transformação de tipos** com class-transformer
+- **Mensagens de erro personalizadas**
+- **Regras de validação customizadas**
+
+## 🧪 Testes
+
+```bash
+# Testes unitários
+npm run test
+
+# Testes com cobertura
+npm run test:cov
+
+# Testes em modo watch
+npm run test:watch
+
+# Testes e2e
+npm run test:e2e
+```
+
+## 🎯 Lint e Formatação
+
+```bash
+# Executar ESLint com auto-fix
+npm run lint
+
+# Formatar código com Prettier
+npm run format
+```
+
+## 📖 Recursos Adicionais
+
+- [NestJS Documentation](https://docs.nestjs.com)
+- [TypeORM Documentation](https://typeorm.io)
+- [class-validator](https://github.com/typestack/class-validator)
+- [class-transformer](https://github.com/typestack/class-transformer)
+
+## 📝 Licença
+
+UNLICENSED
