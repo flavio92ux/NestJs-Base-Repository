@@ -1,0 +1,21 @@
+### LIST developers
+GET http://localhost:3000/developers
+
+### LIST developer
+GET http://localhost:3000/developers/1
+
+### CREATE developer
+POST http://localhost:3000/developers
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john_doe@acme.com.br",
+    "dateOfBirth": "1992-03-29"
+}
+
+### UPDATE developer
+PATCH http://localhost:3000/developers/1
+
+### DELETE developer
+DELETE http://localhost:3000/developers/3
